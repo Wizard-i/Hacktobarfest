@@ -1,0 +1,26 @@
+# কুমিরা বাস বন্ধু — Python dependencies
+# pip install -r requirements.txt
+
+# ——— Core ———
+gradio>=4.36.0               # Gradio UI framework
+python-dotenv>=1.0.0         # .env ফাইল লোড করতে
+
+# ——— LLM (Gemini API) ———
+google-genai>=0.8.0          # Gemini API client (google-genai প্যাকেজ)
+
+# ——— STT (Whisper) ———
+openai-whisper>=20231117     # OpenAI Whisper (local inference)
+numpy>=1.24.0                # Audio array processing
+
+# ——— Timezone ———
+pytz>=2024.1                 # Bangladesh timezone (Asia/Dhaka)
+
+# ——— Audio (Whisper এর জন্য) ———
+# ffmpeg সিস্টেমে আলাদা ইনস্টল করতে হবে:
+# Windows: winget install FFmpeg  অথবা  choco install ffmpeg
+# Mac:     brew install ffmpeg
+# Linux:   sudo apt install ffmpeg
+
+# ——— Testing ———
+pytest>=8.0.0
+pytest-mock>=3.14.0

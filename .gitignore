@@ -1,0 +1,61 @@
+# ══════════════════════════════════════════════
+#  কুমিরা বাস বন্ধু — .gitignore
+# ══════════════════════════════════════════════
+
+# ──── Secrets / Environment ────
+.env
+*.env.local
+*.env.production
+
+# ──── Python ────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# ──── Virtual Environment ────
+venv/
+.venv/
+env/
+ENV/
+.env/
+
+# ──── Whisper মডেল cache ────
+# (স্বয়ংক্রিয়ভাবে ~/.cache/whisper এ থাকে, repo তে নয়)
+*.pt
+*.bin
+
+# ──── Testing ────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.log
+
+# ──── IDE / Editor ────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ──── Gradio temp files ────
+gradio_cached_examples/
+/tmp/
+
+# ──── Jupyter ────
+.ipynb_checkpoints/
+*.ipynb
+
+# ──── Logs ────
+logs/
+*.log
