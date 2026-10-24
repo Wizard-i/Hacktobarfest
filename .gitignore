@@ -50,6 +50,7 @@ Thumbs.db
 
 # ──── Gradio temp files ────
 gradio_cached_examples/
+.gradio/
 /tmp/
 
 # ──── Jupyter ────
