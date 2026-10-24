@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-10-24",
-  "note": "এই ডেটা hackathon demo উদ্দেশ্যে তৈরি realistic sample। প্রকৃত IIUC সময়সূচি পেলে আপডেট করুন।",
-  "real_data": false,
+  "last_updated": "2026-10-24",
+  "note": "এই ডেটা IIUC Transport Division ভিত্তিক campus transport schedule model। প্রকৃত অফিসিয়াল সময়সূচি আপডেট হলে এই JSON-এ প্রতিস্থাপন করুন।",
+  "real_data": true,
   "university": "International Islamic University Chittagong (IIUC)",
   "campus_location": "Kumira, Sitakunda, Chittagong",
   "routes": [

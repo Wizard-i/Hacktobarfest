@@ -424,8 +424,6 @@ tr:hover td { background: rgba(67,233,123,0.04) !important; }
 # ════════════════════════════════════════════════
 
 with gr.Blocks(
-    theme=custom_theme,
-    css=custom_css,
     title="কুমিরা বাস বন্ধু — IIUC Bus Assistant",
 ) as demo:
 
@@ -451,8 +449,6 @@ with gr.Blocks(
                         label="💬 কথোপকথন",
                         elem_classes=["chatbot"],
                         height=420,
-                        type="messages",
-                        avatar_images=(None, "🚌"),
                         show_label=True,
                         elem_id="chatbot_main",
                     )
@@ -720,23 +716,27 @@ with gr.Blocks(
 
 if __name__ == "__main__":
     print("=" * 55)
-    print(f"  {APP_TITLE}  v{APP_VERSION}")
+    print("  Kumira Bus Bondhu  v" + APP_VERSION)
     print("=" * 55)
     info  = get_model_info()
     winfo = get_whisper_info()
     bus   = load_bus_data()
     print(f"  LLM    : {info['model_id']} ({info['provider']})")
-    print(f"  STT    : Whisper {winfo['model_size']} | ভাষা: {winfo['language']}")
-    print(f"  API    : {'✅ সেট' if info['api_key_set'] else '❌ GEMINI_API_KEY সেট নেই!'}")
-    print(f"  Routes : {len(bus.get('routes', []))} টি রুট লোড হয়েছে")
+    print(f"  STT    : Whisper {winfo['model_size']} ({winfo['language']})")
+    print(f"  API    : {'SET' if info['api_key_set'] else 'NOT SET - add GEMINI_API_KEY to .env!'}")
+    print(f"  Routes : {len(bus.get('routes', []))} routes loaded")
     print("=" * 55)
-    print("  ব্রাউজার: http://localhost:7860")
+    print("  Browser: http://localhost:7860")
+    print("  Public share: enabled")
     print("=" * 55)
 
+    enable_share = os.getenv("GRADIO_SHARE", "true").lower() in {"1", "true", "yes", "y"}
     demo.launch(
         server_name="0.0.0.0",
         server_port=int(os.getenv("PORT", 7860)),
-        share=False,
+        share=enable_share,
         show_error=True,
-        inbrowser=True,
+        inbrowser=False,
+        theme=custom_theme,
+        css=custom_css,
     )

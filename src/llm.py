@@ -52,6 +52,12 @@ def ask_gemma(system_prompt: str, user_message: str, history: list | None = None
     str
         মডেলের উত্তর।
     """
+    if not _API_KEY:
+        return (
+            "⚠️ Gemini API key সেট করা নেই। .env ফাইলে GEMINI_API_KEY=<your_key> লিখে আবার চেষ্টা করুন।\n\n"
+            "এই মুহূর্তে অ্যাপটি ডেটা প্রদর্শন ও রুট তথ্য দেখাতে প্রস্তুত, কিন্তু LLM উত্তর তৈরি করতে API প্রয়োজন।"
+        )
+
     client = _get_client()
 
     # ——— conversation history → Gemini Content objects ———
